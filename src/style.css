@@ -8,27 +8,53 @@ body {
   text-align: center;
   background: white;
 }
+h1 {
+  font-size: 30px;
+  text-transform: capitalize;
+}
+h2 {
+  text-align: center;
+  font-size: 50px;
+}
+
+p {
+  font-weight: bold;
+}
+
+ul {
+  text-align: center;
+  font-weight: bold;
+  list-style: none;
+}
+form input {
+  width: 150px;
+  border-radius: 5px;
+}
+footer {
+  font-size: small;
+}
 .container {
   background: rgba(156, 181, 219, 0.151);
   margin: 0;
   padding-bottom: 15px;
   padding-top: 20px;
 }
-#current-temp {
-  font-size: 50px;
-}
-h1 {
-  font-size: 30px;
-}
-#search-button {
-  margin-top: 15px;
-  border-radius: 10px;
-}
-p {
-  font-weight: bold;
-}
 .temp-place-search {
   margin: auto 25px;
+}
+.current-col {
+  width: 218px;
+}
+.location-temp {
+  margin-bottom: 0px;
+}
+.buttons {
+  margin-top: 15px;
+  border-radius: 10px;
+  width: 150px;
+}
+.temp-units {
+  font-size: 20px;
 }
 .forecast {
   border-top: darkblue;
@@ -39,22 +65,12 @@ p {
   padding: 20px 20px 0;
   margin: 20px 20px 0;
 }
-.date {
-  font-weight: bold;
+.current-weather {
+  margin: auto 40px;
 }
-form input {
-  width: 150px;
-  border-radius: 5px;
-}
-ul {
-  font-weight: bold;
-  list-style: none;
-}
-#search-city {
-  margin-top: 25px;
-}
-#city-country {
-  margin-top: 20px;
+.temp-units {
+  position: relative;
+  top: -22px;
 }
 .low-high {
   border-top: teal;
@@ -78,6 +94,26 @@ ul {
 .five-day-row {
   margin: auto 20px;
 }
-footer {
-  font-size: small;
+
+#city-input {
+  width: 200px;
+}
+#current-temp {
+  font-size: 50px;
+}
+#current-temp-emoji {
+  font-size: 60px;
+}
+#date-time {
+  /* border: red solid; */
+}
+#current-conditions {
+  /* border: solid red; */
+}
+
+#search-city {
+  margin-top: 25px;
+}
+#city-country {
+  margin-top: 20px;
 }

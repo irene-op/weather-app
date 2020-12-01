@@ -15,50 +15,50 @@
   </head>
 
   <body>
+    
     <div class="container">
       <section class="temp-place-search">
+        <div>
+          <form id="search-city-form">
+            <input type="search" placeholder="Type city name" id="city-input" />
+            <input class="buttons" id="search-button" type="submit" value="Search" />
+            <button class="buttons" id="your-location-button">Your location</button>
+          </form>
+        </div>
+        <div class="row location-temp">
+          <div class="col">
+            <strong id="current-temp">27<span class="temp-units"><a href="#" id="celcius"> °C</a>|<a href="#" id="hahrenheit">°F</a></span></strong> 
+          </div>
+          <div id="city-country" class="col">
+            <h1>Medellin</h1>
+          </div>
+        </div>
         <div class="row">
-          <div class="col-3">
-            <strong id="current-temp">27°C</strong> <br />☀️
+          <div class="col-6">
+            <h2>☀️</h2>
           </div>
-          <div id="city-country" class="col-6">
-            <h1>Medellin, Colombia</h1>
-          </div>
-          <div class="col-3">
-            <form id="search-city-form">
-              <input
-                type="search"
-                placeholder="Type city name"
-                id="city-input"
-              />
-              <input id="search-button" type="submit" value="Search" />
-            </form>
+          <div class="col-6">
+            <p>Sunny</p>
           </div>
         </div>
       </section>
       <section class="current-weather">
         <div class="row">
-          <div id="date-time" class="col-3">
-            <ul class="date">
+          <div id="date-time" class="col current-col">
+            <ul class="date weather-conditions">
               <li id="day-element">Sunday</li>
               <li id="date-element">17/10/2020</li>
               <li id="time-element">17:29</li>
             </ul>
           </div>
-          <div class="col-6">
-            <ul>
+          <div class="col current-col">
+            <ul id="current-conditions" class="weather-conditions">
               <li>Precipitation: 10%</li>
               <li id="wind-speed">Wind: 2m/s SE</li>
               <li id="humidity">Humidity:80%</li>
             </ul>
           </div>
-          <div id="current-conditions" class="col-3">
-            <button id="your-location-button">Your location</button>
-            <p id="weather-description">
-              <br />
-              Sunny
-            </p>
-          </div>
+          
         </div>
       </section>
       <section class="forecast">
@@ -92,8 +92,8 @@
       </section>
     </div>
     <footer>
-          <a href=https://github.com/irene-op/weather-app target="blank">Open-source-code</a>, by Irene Ortega
-      </footer>
+          <a href=https://github.com/irene-op/weather-app target="blank">Open-source code</a>, by Irene Ortega
+    </footer>
     <script src="src/script.js"></script>
   </body>
 </html>
