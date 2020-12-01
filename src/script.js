@@ -54,6 +54,7 @@ function search(event) {
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+    mainIcon.setAttribute("alt", response.data.weather[0].description);
     let description = document.getElementById("description");
     let descriptionNow = response.data.weather[0].description;
     description.innerHTML = `${descriptionNow}`;
@@ -82,6 +83,12 @@ function showCurrentLocation(event) {
     h1.innerHTML = `${response.data.name}`;
     let currentTempYourLocation = document.getElementById("current-temp");
     currentTempYourLocation.innerHTML = `${tempYourLocation}°C`;
+    let mainIcon = document.getElementById("main-icon");
+    mainIcon.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+    mainIcon.setAttribute("alt", response.data.weather[0].description);
     let description = document.getElementById("description");
     let descriptionNow = response.data.weather[0].description;
     description.innerHTML = `${descriptionNow}`;
