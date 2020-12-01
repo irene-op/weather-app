@@ -50,9 +50,10 @@ function search(event) {
     console.log(celciusLink);
     currentTemp.innerHTML = `${temperature} °C|°F`;
     let mainIcon = document.getElementById("main-icon");
-    console.log(response.data);
-    let mainIconNow = response.data.weather[0].icon;
-    mainIcon.innerHTML = `${mainIconNow}`;
+    mainIcon.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
     let description = document.getElementById("description");
     let descriptionNow = response.data.weather[0].description;
     description.innerHTML = `${descriptionNow}`;
@@ -81,6 +82,9 @@ function showCurrentLocation(event) {
     h1.innerHTML = `${response.data.name}`;
     let currentTempYourLocation = document.getElementById("current-temp");
     currentTempYourLocation.innerHTML = `${tempYourLocation}°C`;
+    let description = document.getElementById("description");
+    let descriptionNow = response.data.weather[0].description;
+    description.innerHTML = `${descriptionNow}`;
     let wind = Math.round(response.data.wind.speed);
     let windSpeed = document.getElementById("wind-speed");
     windSpeed.innerHTML = `Wind speed: ${wind}m/s`;

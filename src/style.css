@@ -117,6 +117,9 @@ footer {
 #city-country {
   margin-top: 20px;
 }
+#main-icon {
+  color: yellow;
+}
 #description {
   text-transform: capitalize;
 }
