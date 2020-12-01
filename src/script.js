@@ -46,7 +46,16 @@ function search(event) {
   function getWeather(response) {
     let temperature = Math.round(response.data.main.temp);
     let currentTemp = document.getElementById("current-temp");
-    currentTemp.innerHTML = `${temperature}°C`;
+    let celciusLink = document.getElementById("celcius-link");
+    console.log(celciusLink);
+    currentTemp.innerHTML = `${temperature} °C|°F`;
+    let mainIcon = document.getElementById("main-icon");
+    console.log(response.data);
+    let mainIconNow = response.data.weather[0].icon;
+    mainIcon.innerHTML = `${mainIconNow}`;
+    let description = document.getElementById("description");
+    let descriptionNow = response.data.weather[0].description;
+    description.innerHTML = `${descriptionNow}`;
     let wind = Math.round(response.data.wind.speed);
     let windSpeed = document.getElementById("wind-speed");
     windSpeed.innerHTML = `Wind speed: ${wind}m/s`;
@@ -54,6 +63,7 @@ function search(event) {
     let humidityNow = document.getElementById("humidity");
     humidityNow.innerHTML = `Humidity: ${humidity}%`;
   }
+
   let cityInput = document.getElementById("city-input");
   let cityCountry = document.querySelector("h1");
   cityCountry.innerHTML = `${cityInput.value}`;

@@ -117,3 +117,6 @@ footer {
 #city-country {
   margin-top: 20px;
 }
+#description {
+  text-transform: capitalize;
+}
