@@ -41,6 +41,20 @@ function showTime(date) {
   return nowTime;
 }
 
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
+
 function search(event) {
   event.preventDefault();
   function getWeather(response) {
@@ -48,7 +62,7 @@ function search(event) {
     let currentTemp = document.getElementById("current-temp");
     let celciusLink = document.getElementById("celcius-link");
     console.log(celciusLink);
-    currentTemp.innerHTML = `${temperature} °C|°F`;
+    currentTemp.innerHTML = `${temperature} °C`;
     let mainIcon = document.getElementById("main-icon");
     mainIcon.setAttribute(
       "src",
@@ -66,6 +80,30 @@ function search(event) {
     humidityNow.innerHTML = `Humidity: ${humidity}%`;
   }
 
+  function getForecast(response) {
+    console.log(response.data.list[0]);
+    let forecastElement = document.getElementById("forecast");
+    let forecast = null;
+    forecastElement.innerHTML = null;
+
+    for (let index = 0; index < 6; index++) {
+      forecast = response.data.list[index];
+      forecastElement.innerHTML += `<div class="col-2 five-days">
+            <strong> ${formatHours(
+              forecast.dt * 1000
+            )} </strong> <br />18/10<br />
+            <div class="low-high">${Math.round(
+              forecast.main.temp_max
+            )}°C<br /><strong>${Math.round(
+        forecast.main.temp_min
+      )}°C</strong><br /></div>
+            <span class="icons"><img src="http://openweathermap.org/img/wn/${
+              forecast.weather[0].icon
+            }@2x.png" alt="Clear" id="forecast-one-icon"></span>
+          </div>`;
+    }
+  }
+
   let cityInput = document.getElementById("city-input");
   let cityCountry = document.querySelector("h1");
   cityCountry.innerHTML = `${cityInput.value}`;
@@ -73,6 +111,9 @@ function search(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(getWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput.value}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(getForecast);
 }
 
 function showCurrentLocation(event) {

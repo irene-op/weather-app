@@ -27,7 +27,10 @@
         </div>
         <div class="row location-temp">
           <div class="col">
-            <strong id="current-temp">27<span class="temp-units"><a href="#" id="celcius-link"> °C</a>|<a href="#" id="fahrenheit-link">°F</a></span></strong> 
+            <strong id="current-temp">27<span class="temp-units" id="celcius-link">°C</a></span></strong>
+            <!--<strong id="current-temp">27<span class="temp-units"><a href="#" id="celcius-link"> °C</a>|<a href="#"
+                  id="fahrenheit-link">°F</a></span></strong>-->
+
           </div>
           <div id="city-country" class="col">
             <h1>Medellin</h1>
@@ -53,7 +56,7 @@
           </div>
           <div class="col current-col">
             <ul id="current-conditions" class="weather-conditions">
-              <li>Precipitation: 10%</li>
+              <li id="pressure">Pressure: 1000 hPa</li>
               <li id="wind-speed">Wind: 2m/s SE</li>
               <li id="humidity">Humidity:80%</li>
             </ul>
@@ -61,32 +64,32 @@
           
         </div>
       </section>
-      <section class="forecast">
+      <section class="forecast" id="forecast">
         <div class="row">
           <div class="col five-days">
-            <strong> Monday </strong> <br />18/10<br />
+            <strong>12:00</strong> <br />
             <div class="low-high">15°C<br /><strong>22°C</strong><br /></div>
-            <span class="emoji">⛅️</span>
+            <span class="emoji"><img src="http://openweathermap.org/img/wn/01d@2x.png" alt="Clear" id="main-icon" /></span>
           </div>
           <div class="col five-days">
-            <strong>Tuesday</strong> <br />18/10<br />
+            <strong>15:00</strong> <br />
             <div class="low-high">15°C<br /><strong>22°C</strong><br /></div>
-            <span class="emoji">⛅️</span>
+            <span class="emoji"><img src="http://openweathermap.org/img/wn/01d@2x.png" alt="Clear" id="main-icon" /></span>
           </div>
           <div class="col five-days">
-            <strong>Wednesday</strong> <br />18/10<br />
+            <strong>18:00</strong> <br />
             <div class="low-high">15°C<br /><strong>22°C</strong><br /></div>
-            <span class="emoji">☀️</span>
+            <span class="emoji"><img src="http://openweathermap.org/img/wn/01d@2x.png" alt="Clear" id="main-icon" /></span>
           </div>
           <div class="col five-days">
-            <strong>Thursday</strong> <br />18/10<br />
+            <strong>21:00</strong> <br />
             <div class="low-high">15°C<br /><strong>22°C</strong><br /></div>
-            <span class="emoji">🌦</span>
+            <span class="emoji"><img src="http://openweathermap.org/img/wn/01d@2x.png" alt="Clear" id="main-icon" /></span>
           </div>
           <div class="col five-days">
-            <strong>Friday</strong> <br />18/10<br />
+            <strong>00:00</strong> <br />
             <div class="low-high">15°C<br /><strong>22°C</strong><br /></div>
-            <span class="emoji">🌦</span>
+            <span class="emoji"><img src="http://openweathermap.org/img/wn/01d@2x.png" alt="Clear" id="main-icon" /></span>
           </div>
         </div>
       </section>

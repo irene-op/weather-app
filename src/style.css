@@ -80,9 +80,10 @@ footer {
   border-style: solid;
   margin: auto 10px;
 }
-.emoji {
+.icons {
   margin-top: 25px;
-  font-size: 40px;
+  size: 10%;
+  color: blue;
 }
 .five-days {
   border: cornflowerblue;
