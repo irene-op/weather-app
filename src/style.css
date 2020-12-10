@@ -80,10 +80,9 @@ footer {
   border-style: solid;
   margin: auto 10px;
 }
-.icons {
-  margin-top: 25px;
-  size: 10%;
-  color: blue;
+.icons img {
+  width: 50px;
+  height: 50px;
 }
 .five-days {
   border: cornflowerblue;

@@ -60,9 +60,7 @@ function search(event) {
   function getWeather(response) {
     let temperature = Math.round(response.data.main.temp);
     let currentTemp = document.getElementById("current-temp");
-    let celciusLink = document.getElementById("celcius-link");
-    console.log(celciusLink);
-    currentTemp.innerHTML = `${temperature} °C`;
+    currentTemp.innerHTML = `${temperature}°C`;
     let mainIcon = document.getElementById("main-icon");
     mainIcon.setAttribute(
       "src",
@@ -89,14 +87,12 @@ function search(event) {
     for (let index = 0; index < 6; index++) {
       forecast = response.data.list[index];
       forecastElement.innerHTML += `<div class="col-2 five-days">
-            <strong> ${formatHours(
-              forecast.dt * 1000
-            )} </strong> <br />18/10<br />
+            <strong> ${formatHours(forecast.dt * 1000)} </strong> <br />
             <div class="low-high">${Math.round(
               forecast.main.temp_max
             )}°C<br /><strong>${Math.round(
         forecast.main.temp_min
-      )}°C</strong><br /></div>
+      )}°C</strong></div>
             <span class="icons"><img src="http://openweathermap.org/img/wn/${
               forecast.weather[0].icon
             }@2x.png" alt="Clear" id="forecast-one-icon"></span>
@@ -140,17 +136,43 @@ function showCurrentLocation(event) {
     let humidityNow = document.getElementById("humidity");
     humidityNow.innerHTML = `Humidity: ${humidity}%`;
   }
+  function getForecast(response) {
+    console.log(response.data.list[0]);
+    let forecastElement = document.getElementById("forecast");
+    let forecast = null;
+    forecastElement.innerHTML = null;
+
+    for (let index = 0; index < 6; index++) {
+      forecast = response.data.list[index];
+      forecastElement.innerHTML += `<div class="col-2 five-days">
+            <strong> ${formatHours(forecast.dt * 1000)} </strong> <br />
+            <div class="low-high">${Math.round(
+              forecast.main.temp_max
+            )}°C<br /><strong>${Math.round(
+        forecast.main.temp_min
+      )}°C</strong></div>
+            <span class="icons"><img src="http://openweathermap.org/img/wn/${
+              forecast.weather[0].icon
+            }@2x.png" alt="Clear" id="forecast-one-icon"></span>
+          </div>`;
+    }
+  }
 
   function getYourLocation(position) {
     let lat = position.coords.latitude;
     let long = position.coords.longitude;
     let apiKey = "db15d65fb04d4d3ab973f7ec3f38b472";
     let apiUrlYourLocation = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
+
     axios.get(apiUrlYourLocation).then(getYourWeather);
+
+    apiUrlYourLocation = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrlYourLocation).then(getForecast);
   }
 
   navigator.geolocation.getCurrentPosition(getYourLocation);
 }
+
 let dayOfWeek = document.getElementById("day-element");
 dayOfWeek.innerHTML = `${showDay(now)}`;
 
