@@ -19,7 +19,7 @@ function showFullDate(date) {
   if (currentDate < 10) {
     currentDate = `0${currentDate}`;
   }
-  let currentMonth = date.getMonth();
+  let currentMonth = date.getMonth() + 1;
   if (currentMonth < 10) {
     currentMonth = `0${currentMonth}`;
   }
@@ -84,9 +84,9 @@ function search(event) {
     let forecast = null;
     forecastElement.innerHTML = null;
 
-    for (let index = 0; index < 6; index++) {
+    for (let index = 0; index < 5; index++) {
       forecast = response.data.list[index];
-      forecastElement.innerHTML += `<div class="col-2 five-days">
+      forecastElement.innerHTML += `<div class="col five-days">
             <strong> ${formatHours(forecast.dt * 1000)} </strong> <br />
             <div class="low-high">${Math.round(
               forecast.main.temp_max
@@ -142,9 +142,9 @@ function showCurrentLocation(event) {
     let forecast = null;
     forecastElement.innerHTML = null;
 
-    for (let index = 0; index < 6; index++) {
+    for (let index = 0; index < 5; index++) {
       forecast = response.data.list[index];
-      forecastElement.innerHTML += `<div class="col-2 five-days">
+      forecastElement.innerHTML += `<div class="col five-days">
             <strong> ${formatHours(forecast.dt * 1000)} </strong> <br />
             <div class="low-high">${Math.round(
               forecast.main.temp_max
